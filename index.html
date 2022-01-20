@@ -10,47 +10,55 @@
   <title>Dashboard - SB Admin</title>
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
-  <script src="js/all.min.js"
-    crossorigin="anonymous"></script>
+  <script src="js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html">Knowesis Kafka Feed</a>
-    <!-- Navbar-->
+        <!-- Navbar Logo-->
+    <a class="navbar-brand ps-3" href="index.html">
+      <img src="asset/knowesis-logo.png" width="65" height="35" class="d-inline-block align-top" alt="">
+      Knowesis Kafka Feed
+    </a>
   </nav>
   <div id="layoutSidenav">
     <div id="layoutSidenav_content">
       <main>
         <div class="container-fluid px-4">
-          <h1 class="mt-4">JSON kafka feed</h1>
-          <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">feed your json</li>
-          </ol>
-          <label for="exampleDataList" class="form-label">Datalist example</label>
-        <div class="row">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select topic</option>
-            <option value="1">duck.sift</option>
-            <option value="2">sift.duck</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
           <div class="row">
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <div class="col-3">
+
+              <h1 class="mt-4">JSON kafka feed</h1>
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">feed your json</li>
+              </ol>
+              <label for="exampleDataList" class="form-label">Topic list</label>
+              <div class="row">
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>Open this select topic</option>
+                  <option value="1">duck.sift</option>
+                  <option value="2">sift.duck</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-9 ">
+              <label for="exampleFormControlTextarea1" class="form-label mt-4">Example textarea</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <button type="button" class="btn btn-primary mt-3">Send Feed</button>
             </div>
           </div>
+
         </div>
+      </main>
     </div>
   </div>
-  </main>
+  </div>
+
   <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
       <div class="d-flex align-items-center justify-content-between small">
-        <div class="text-muted">Copyright &copy; Knowesis Website 2021</div>
+        <div class="text-muted">Copyright &copy; Knowesis Website 2022</div>
         <div>
           <a href="#">Privacy Policy</a>
           &middot;
