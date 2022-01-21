@@ -171,3 +171,9 @@
 	content: " ";
 	display: table;
 }
+textarea.textarea-autosize {
+    padding-top:10px;
+    padding-bottom:25px; /* increased! */
+    width:100%;
+    display:block;
+}

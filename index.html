@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
+  <link rel="icon" href="asset/knowesis-logo.png">
   <title>Dashboard - SB Admin</title>
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
@@ -33,6 +34,7 @@
                 <li class="breadcrumb-item active">feed your json</li>
               </ol>
               <label for="exampleDataList" class="form-label">Topic list</label>
+              <form>
               <div class="row">
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Open this select topic</option>
@@ -44,9 +46,11 @@
             </div>
             <div class="col-9 ">
               <label for="exampleFormControlTextarea1" class="form-label mt-4">Example textarea</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control textarea-autosize" id="exampleFormControlTextarea1" rows="10"></textarea>
               <button type="button" class="btn btn-primary mt-3">Send Feed</button>
+              <input type="reset"class="btn btn-warning mt-3" value="Reset">
             </div>
+          </form>
           </div>
 
         </div>
@@ -72,6 +76,31 @@
   <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
   <script src="js/datatables-simple-demo.js"></script>
+  <script>
+    function register_auto_resize_textarea(element, need_scroll_to_bottom){
+      var min_height = element.scrollHeight;
+      element.addEventListener('input', function(event){
+        this.style.overflow = 'hidden';
+        if (this.scrollHeight > min_height){
+          this.style.height = 0;
+          // note: setting above property to 0 automatically changed the value of this.scrollHeight as well
+          this.style.height = this.scrollHeight + 'px';
+          if (this.scrollHeight < min_height){
+            this.style.height = min_height + "px";
+          }
+          if (need_scroll_to_bottom){
+            scroll_page_to_the_bottom();
+          }
+        }
+      });
+    }
+    
+    function scroll_page_to_the_bottom(){
+      window.scrollTo(0,document.body.scrollHeight);
+    }
+    
+    register_auto_resize_textarea($example, true);
+  </script>
 </body>
 
 </html>
