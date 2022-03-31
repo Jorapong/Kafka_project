@@ -28,14 +28,15 @@
         <div class="container-fluid px-4">
           <div class="row">
             <div class="col-3">
-
               <h1 class="mt-4">JSON kafka feed</h1>
               <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">feed your json</li>
               </ol>
-              <label for="exampleDataList" class="form-label">Topic list</label>
+            </div>
+            <div class="col-5 pull-right">
               <form>
-              <div class="row">
+              <div class="row mt-4">
+                Topic list
                 <select class="form-select" aria-label="Default select example">
                   <option selected>Open this select topic</option>
                   <option value="1">duck.sift</option>
@@ -44,12 +45,12 @@
                 </select>
               </div>
             </div>
-            <div class="col-9 ">
-              <label for="exampleFormControlTextarea1" class="form-label mt-4">Example textarea</label>
+          <div>
+            <label for="exampleFormControlTextarea1" class="form-label ">Example textarea</label>
               <textarea class="form-control textarea-autosize" id="exampleFormControlTextarea1" rows="10"></textarea>
               <button type="button" class="btn btn-primary mt-3">Send Feed</button>
               <input type="reset"class="btn btn-warning mt-3" value="Reset">
-            </div>
+          </div>
           </form>
           </div>
 
