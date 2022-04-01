@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>JQuery Lined TextArea Example</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<script src="js/jquery-linedtextarea.js"></script>
+	<link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+  <style>
+    body { background-color: #fafafa; font-family: 'Roboto Condensed'; }
+    .container { margin: 150px auto; max-width: 960px; text-align: center;}
+	
+  </style>
+</head>
+<body>
+
+<div class="container">
+<h1>JQuery Lined TextArea Example</h1>
+
+<p>Add a scrollable lined area to HTML textarea element.</p>
+
+<textarea class="lined" rows="10" cols="60">JavaScript was originally developed by Brendan
+Eich of Netscape under the name Mocha,
+which was later renamed to LiveScript,
+and finally to JavaScript.
+
+The change of name from LiveScript to JavaScript roughly
+coincided with Netscape adding support for
+Java technology in its Netscape Navigator
+web browser.
+
+JavaScript was first introduced
+and deployed in the Netscape browser version
+2.0B3 in December 1995.
+
+The naming has caused confusion, giving the
+impression that the language is a spin-off of Java,
+and it has been characterized by many as a
+marketing ploy by Netscape to give JavaScript the
+cachet of what was then the hot new web-programming language.
+</textarea>
+</div>
+<script>
+$(function() {
+	$(".lined").linedtextarea(
+		{selectedLine: 4}
+	);
+});
+</script>
+
+</body>
+</html>
