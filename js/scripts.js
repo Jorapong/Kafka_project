@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', event => {
 function loadTopic() {
     const xhttp = new XMLHttpRequest();
     xhttp.overrideMimeType("application/json");
-    xhttp.open("GET", "http://localhost:9100/topics");
+    xhttp.open("GET", "http://192.168.1.110:9100/topics");
     xhttp.onload = function () {
         var jsonResponse = JSON.parse(xhttp.responseText);
         var status = jsonResponse.status;
@@ -55,7 +55,7 @@ function topicSending() {
         try {
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:9100/products',
+                url: 'http://192.168.1.110:9100/products',
                 data: JSON.stringify(message),
                 contentType: "application/json; charset=utf-8",
                 traditional: true,
