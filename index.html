@@ -1,6 +1,7 @@
 <!-- Create by jirapong.r@knowesis.com -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -8,14 +9,16 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="icon" href="asset/knowesis-logo.png">
-  <title>Dashboard - SB Admin</title>
+  <title>Knowesis Kafka Feed</title>
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <script src="js/all.min.js" crossorigin="anonymous"></script>
-  <script src="js/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-	<script src="js/jquery-linedtextarea.js"></script>
-	<link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
-  
+  <script src="js/jquery-1.12.4.min.js"
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+    crossorigin="anonymous"></script>
+  <script src="js/jquery-linedtextarea.js"></script>
+  <link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+  <script src="js/scripts.js"></script>
 </head>
 
 <body class="sb-nav-fixed sb-sidenav-toggled">
@@ -49,9 +52,8 @@
                 </div>
             </div>
             <div>
-              <label for="exampleFormControlTextarea1" class="form-label ">Example textarea</label>
-              <!--<textarea class="form-control textarea-autosize" id="exampleFormControlTextarea1" rows="10"></textarea>-->
-              <textarea class="lined textarea-autosize" rows="21" >{ }</textarea>
+              <label for="exampleFormControlTextarea1" class="form-label ">Insert</label>
+              <textarea class="lined textarea-autosize" rows="21">{ }</textarea>
               <button type="button" class="btn btn-primary mt-3">Send Feed</button>
               <input type="reset" class="btn btn-warning mt-3" value="Reset">
               <div class="text-center">
@@ -69,12 +71,12 @@
   </div>
   </div>
   <script>
-    $(function() {
+    $(function () {
       $(".lined").linedtextarea(
-        {selectedLine: 1}
+        { selectedLine: 1 }
       );
     });
-    </script>
+  </script>
   <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
       <div class="d-flex align-items-center justify-content-between small">
@@ -90,7 +92,6 @@
   </div>
   </div>
   <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="js/scripts.js"></script>
   <script src="js/datatables-simple-demo.js"></script>
 
 </body>
