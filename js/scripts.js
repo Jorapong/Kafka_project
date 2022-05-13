@@ -18,6 +18,7 @@ function loadTopic() {
     xhttp.onload = function () {
         var jsonResponse = JSON.parse(xhttp.responseText);
         var status = jsonResponse.status;
+        console.log(jsonResponse);
         if (status == "success") {
             var topic = jsonResponse.message;
             for (var i = 0; i < topic.length; i++) {
