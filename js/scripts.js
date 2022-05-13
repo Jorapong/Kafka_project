@@ -41,11 +41,11 @@ function topicSending() {
         exit;
     }
     var jsonValues = $("textarea#jsonValues").val();
-    try{
+    try {
         jsonValuesArray = JSON.parse(jsonValues);
-    }catch (e){
-        window.alert("Unexpected token s in JSON");        
-    }finally {
+    } catch (e) {
+        window.alert("Unexpected token s in JSON");
+    } finally {
         const message = {
             "topic": topic,
             "message": jsonValuesArray
