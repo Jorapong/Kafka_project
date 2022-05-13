@@ -13,21 +13,21 @@
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
   <script src="js/all.min.js" crossorigin="anonymous"></script>
-  <script src="js/jquery-1.12.4.min.js"
-    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
-    crossorigin="anonymous"></script>
-  <script src="js/jquery-linedtextarea.js"></script>
+  <script src="js/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+  <script src="js/jquery-linedtextarea.js" crossorigin="anonymous"></script>
   <link href="css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
-  <script src="js/scripts.js"></script>
+  <script src="js/scripts.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="sb-nav-fixed sb-sidenav-toggled">
+<body class="sb-nav-fixed sb-sidenav-toggled" onload="loadTopic()">
   <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Logo-->
     <a class="navbar-brand ps-3" href="index.html">
       <img src="asset/knowesis-logo.png" width="65" height="35" class="d-inline-block align-top" alt="">
       Knowesis Kafka Feed
     </a>
   </nav>
+
   <div id="layoutSidenav">
     <div id="layoutSidenav_content">
       <main>
@@ -43,28 +43,22 @@
               <form>
                 <div class="row mt-4">
                   Topic list
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select topic</option>
-                    <option value="1">duck.sift</option>
-                    <option value="2">sift.duck</option>
-                    <option value="3">Three</option>
+                  <select class="form-select" id="selectTopic" aria-label="Default select example" >
+                    <option value="notselect" selected>Open this select topic</option>
+                    <div class="text-center" id="topics"></div>
                   </select>
                 </div>
             </div>
             <div>
-              <label for="exampleFormControlTextarea1" class="form-label ">Insert</label>
-              <textarea class="lined textarea-autosize" rows="21">{ }</textarea>
-              <button type="button" class="btn btn-primary mt-3">Send Feed</button>
-              <input type="reset" class="btn btn-warning mt-3" value="Reset">
-              <div class="text-center">
-                <div class="spinner-border" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-              </div>
+              <label for="exampleFormControlTextarea1" class="form-label ">Insert JSON data</label>
+              <!--<textarea class="form-control textarea-autosize" id="exampleFormControlTextarea1" rows="10"></textarea>-->
+              <textarea class="lined textarea-autosize" rows="21" id="jsonValues"name="jsonValues">[ ]</textarea>
+              <button type="button" class="btn btn-primary mt-3" onclick="topicSending()">Send Feed</button>
+              <input type="reset" class="btn btn-warning mt-3" value="Reset" onclick="reSet()">
+              <div id="loading"></div>
             </div>
             </form>
           </div>
-
         </div>
       </main>
     </div>
@@ -76,6 +70,7 @@
         { selectedLine: 1 }
       );
     });
+
   </script>
   <footer class="py-4 bg-light mt-auto">
     <div class="container-fluid px-4">
@@ -92,7 +87,6 @@
   </div>
   </div>
   <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="js/datatables-simple-demo.js"></script>
 
 </body>
 
