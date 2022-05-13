@@ -1,6 +1,6 @@
-var loading = '<div class="text-center"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span></div></div>';
-var success='<div class="alert alert-success"><strong>Success!</strong> Send JSON value is Success.</div>';
-var danger='<div class="alert alert-danger"><strong>Danger!</strong> Can not sent JSON Value.</div>';
+var loading = '<div class="text-center mt-3"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span></div></div>';
+var success = '<div class="alert alert-success mt-3"><strong>Success!</strong> Send JSON value is Success.</div>';
+var danger = '<div class="alert alert-danger mt-3"><strong>Danger!</strong> Can not sent JSON Value.</div>';
 window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
-
 });
 function loadTopic() {
     const xhttp = new XMLHttpRequest();
@@ -18,13 +17,13 @@ function loadTopic() {
     xhttp.open("GET", "http://localhost:9100/topics");
     xhttp.onload = function () {
         var jsonResponse = JSON.parse(xhttp.responseText);
-        var status = JSON.parse(jsonResponse.success);
-        if (status == 1) {
+        var status = jsonResponse.status;
+        if (status == "success") {
             var topic = jsonResponse.message;
             for (var i = 0; i < topic.length; i++) {
                 console.log(topic[i]);
                 var optionValue = topic[i].toString();
-                var optionText =topic[i].toString();
+                var optionText = topic[i].toString();
                 $('#selectTopic').append(`<option value="${optionValue}">
                                        ${optionText}
                                   </option>`);
@@ -36,44 +35,44 @@ function loadTopic() {
     xhttp.send();
 }
 function topicSending() {
-
-    var topic=$( "#selectTopic" ).val();
-    if(topic=="notselect"){
+    var topic = $("#selectTopic").val();
+    if (topic == "notselect") {
         window.alert("Please select a topic!!");
         exit;
     }
-    var jsonValues=$( "textarea#jsonValues" ).val();
-
-    //console.log(jsonValuesArray);
-    const message={
-        "topic":topic,
-        "message":jsonValues.replace("\n", "")};
-    //const messageObj = jsonParse(message);
-    $("#loading").html(loading);
-    console.log(message);
+    var jsonValues = $("textarea#jsonValues").val();
     try{
-        $.ajax({
-            type: 'POST',
-            url: 'http://localhost:9100/products',
-            data: JSON.stringify(message),
-            contentType: "application/json; charset=utf-8",
-            traditional: true,
-            success: function (data) {
-                if(data.success ===1){
-                    $("#loading").html(success);
+        jsonValuesArray = JSON.parse(jsonValues);
+    }catch (e){
+        window.alert("Unexpected token s in JSON");        
+    }finally {
+        const message = {
+            "topic": topic,
+            "message": jsonValuesArray
+        };
+        $("#loading").html(loading);
+        console.log(JSON.stringify(message));
+        try {
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9100/products',
+                data: JSON.stringify(message),
+                contentType: "application/json; charset=utf-8",
+                traditional: true,
+                success: function (data) {
+                    console.log(data);
+                    if (data.success >= 1) {
+                        $("#loading").html(success);
+                    } else {
+                        $("#loading").html(danger);
+                    }
                 }
-            }
-        });
-    }catch (e){
-        $("#loading").html(danger);
+            });
+        } catch (e) {
+            $("#loading").html(danger);
+        }
     }
-    
 }
-function jsonParse(str){
-    try{
-        const jsonObj=JSON.parse(str);
-        return jsonObj;
-    }catch (e){
-        window.alert("Unexpected token s in JSON");
-    }
+function reSet() {
+    document.getElementById("jsonValues").value = "[ ]";
 }
