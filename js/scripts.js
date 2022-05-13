@@ -19,10 +19,11 @@ function loadTopic() {
         var jsonResponse = JSON.parse(xhttp.responseText);
         var status = jsonResponse.status;
         console.log(jsonResponse);
+        console.log(status);
         if (status == "success") {
             var topic = jsonResponse.message;
             for (var i = 0; i < topic.length; i++) {
-                console.log(topic[i]);
+                //console.log(topic[i]);
                 var optionValue = topic[i].toString();
                 var optionText = topic[i].toString();
                 $('#selectTopic').append(`<option value="${optionValue}">
