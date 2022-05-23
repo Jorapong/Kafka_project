@@ -46,7 +46,8 @@ function topicSending() {
     try {
         jsonValuesArray = JSON.parse(jsonValues);
     } catch (e) {
-        window.alert("Unexpected token s in JSON");
+        window.alert("blank JSON is not allow");
+        return
     } finally {
         const message = {
             "topic": topic,
