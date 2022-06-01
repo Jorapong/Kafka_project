@@ -1,6 +1,6 @@
 var loading = '<div class="text-center mt-3"> <div class="spinner-border" role="status"> <span class="sr-only">Loading...</span></div></div>';
 var success = '<div class="alert alert-success mt-3"><strong>Success!</strong> Send JSON value is Success.</div>';
-var danger = '<div class="alert alert-danger mt-3 text-center"><strong>Failed!</strong><br>Error: please contact admin<br>jirapong.r@knowesis.com</div>';
+var danger = '<div class="alert alert-danger mt-3 text-center"><strong>Failed!</strong><br>blank JSON is not allow</div>';
 window.addEventListener('DOMContentLoaded', event => {
     const sidebarToggle = document.body.querySelector('#sidebarToggle');
     if (sidebarToggle) {
@@ -46,7 +46,7 @@ function topicSending() {
     try {
         jsonValuesArray = JSON.parse(jsonValues);
     } catch (e) {
-        window.alert("blank JSON is not allow");
+        window.alert("Unexpected token s in JSON");
         return
     } finally {
         const message = {
